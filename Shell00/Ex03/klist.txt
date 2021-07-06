@@ -1,0 +1,5 @@
+Credentials cache: API:BDA3A75F-AA25-40ED-8445-A478055ACF40
+        Principal: chaidel@42.FR
+
+  Issued                Expires             Flags    Principal
+Jun 28 12:37:29 2021  Jul  5 12:37:23 2021  FPIA   krbtgt/42.FR@42.FR
