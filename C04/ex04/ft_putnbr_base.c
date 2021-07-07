@@ -6,7 +6,7 @@
 /*   By: chaidel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 13:55:49 by chaidel           #+#    #+#             */
-/*   Updated: 2021/07/06 19:27:59 by chaidel          ###   ########.fr       */
+/*   Updated: 2021/07/07 12:28:15 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+int	ft_isspace(int c)
+{
+	if ((c >= 9 && c <= 13) || c == -1 || c == 32)
+		return (1);
+	return (0);
+}
+
 int	ft_checkbase(char *str)
 {
 	int	i;
@@ -37,7 +44,7 @@ int	ft_checkbase(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] == '-' || str[i] == '+')
+		if (str[i] == '-' || str[i] == '+' || ft_isspace(str[i]))
 			return (0);
 		j = i + 1;
 		while (str[j])
@@ -55,25 +62,26 @@ int	ft_checkbase(char *str)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int	len;
-	int	dis[20];
-	int	i;
-
+	int				len;
+	int				dis[20];
+	int				i;
+	unsigned int	n;
+	
 	i = 0;
 	len = 0;
+	n = 0;
 	if (ft_checkbase(base))
 	{
-		len = ft_strlen(base);
 		if (nbr < 0)
 		{
 			ft_putchar('-');
-			nbr *= -1;
+			n = -nbr;
 		}
 		len = ft_strlen(base);
-		while (nbr > 0)
+		while (n > 0)
 		{
-			dis[i] = nbr % len;
-			nbr /= len;
+			dis[i] = n % len;
+			n /= len;
 			i++;
 		}
 		while (--i >= 0)

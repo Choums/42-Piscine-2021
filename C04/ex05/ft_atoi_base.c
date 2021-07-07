@@ -6,7 +6,7 @@
 /*   By: chaidel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 18:40:00 by chaidel           #+#    #+#             */
-/*   Updated: 2021/07/06 10:42:54 by chaidel          ###   ########.fr       */
+/*   Updated: 2021/07/07 12:44:00 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_find_it(char c, char *base)
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	nbr;
+	unsigned int	nbr;
 	int	len;
 	int	sign;
 
