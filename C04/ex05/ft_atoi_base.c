@@ -6,7 +6,7 @@
 /*   By: chaidel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 18:40:00 by chaidel           #+#    #+#             */
-/*   Updated: 2021/07/07 12:44:00 by chaidel          ###   ########.fr       */
+/*   Updated: 2021/07/08 14:09:01 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_isspace(int c)
-{
-	if ((c >= 9 && c <= 13) || c == -1 || c == 32)
-		return (1);
-	return (0);
-}
-
 int	ft_checkbase(char *str)
 {
 	int	i;
@@ -37,7 +30,7 @@ int	ft_checkbase(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] == '-' || str[i] == '+' || ft_isspace(str[i]))
+		if (str[i] == '-' || str[i] == '+' || str[i] <= 32)
 			return (0);
 		j = i + 1;
 		while (str[j])
@@ -70,8 +63,8 @@ int	ft_find_it(char c, char *base)
 int	ft_atoi_base(char *str, char *base)
 {
 	unsigned int	nbr;
-	int	len;
-	int	sign;
+	int				len;
+	int				sign;
 
 	nbr = 0;
 	sign = 1;

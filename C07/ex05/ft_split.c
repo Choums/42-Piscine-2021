@@ -6,7 +6,7 @@
 /*   By: chaidel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:27:00 by chaidel           #+#    #+#             */
-/*   Updated: 2021/07/07 18:56:37 by chaidel          ###   ########.fr       */
+/*   Updated: 2021/07/08 11:15:47 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,13 @@ char	**ft_split(char *str, char *sep)
 	tab[n] = 0;
 	paste_dup(str, tab, sep);
 	return (tab);
+}
+
+#include<stdio.h>
+int	main(void)
+{
+	char **tab = ft_split("Ceci__est__une__string", "__");
+	for(int i = 0; i < 4; i++)
+		printf("%s\n", tab[i]);
+	return 0;
 }

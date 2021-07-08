@@ -6,7 +6,7 @@
 /*   By: chaidel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 13:55:49 by chaidel           #+#    #+#             */
-/*   Updated: 2021/07/07 12:28:15 by chaidel          ###   ########.fr       */
+/*   Updated: 2021/07/08 14:07:50 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_isspace(int c)
-{
-	if ((c >= 9 && c <= 13) || c == -1 || c == 32)
-		return (1);
-	return (0);
-}
-
 int	ft_checkbase(char *str)
 {
 	int	i;
@@ -44,7 +37,7 @@ int	ft_checkbase(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] == '-' || str[i] == '+' || ft_isspace(str[i]))
+		if (str[i] == '-' || str[i] == '+' || str[i] <= 32)
 			return (0);
 		j = i + 1;
 		while (str[j])
@@ -62,14 +55,13 @@ int	ft_checkbase(char *str)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int				len;
-	int				dis[20];
+	unsigned int	len;
 	int				i;
 	unsigned int	n;
-	
+	int				dis[20];
+
 	i = 0;
 	len = 0;
-	n = 0;
 	if (ft_checkbase(base))
 	{
 		if (nbr < 0)
@@ -77,21 +69,15 @@ void	ft_putnbr_base(int nbr, char *base)
 			ft_putchar('-');
 			n = -nbr;
 		}
+		else
+			n = nbr;
 		len = ft_strlen(base);
 		while (n > 0)
 		{
-			dis[i] = n % len;
+			dis[i++] = n % len;
 			n /= len;
-			i++;
 		}
 		while (--i >= 0)
 			ft_putchar(base[dis[i]]);
 	}
-}
-
-int	main(void)
-{
-	char *base = "01";
-	ft_putnbr_base(20, base);
-	return (0);
 }
